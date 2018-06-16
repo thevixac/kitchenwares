@@ -29,19 +29,25 @@ class MockShopAisleWireframe: ShopAisleWireframeProtocol {
 class TestShopAisleFactory: ShopAisleFactory {
     
     var interactorCalled = false
+    let mockInteractor = MockShopAisleInteractor()
     func interactor() -> ShopAisleInteractorInput {
         self.interactorCalled = true
-        return MockShopAisleInteractor()
+        return mockInteractor
     }
     var presenterCalled = false
+    var presenterInput: ShopAisleInteractorInput?
+    let mockPresenter = MockShopAislePresenter()
     func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput {
         self.presenterCalled = true
-        return MockShopAislePresenter()
+        self.presenterInput = input
+        return mockPresenter
     }
     
     var viewControllerCalled = false
+    var viewControllersPresenter: ShopAisleInteractorOutput?
     func viewController(with presenter: ShopAisleInteractorOutput) -> UIViewController {
         self.viewControllerCalled = true
+        self.viewControllersPresenter = presenter
         let testViewController = UIViewController()
         testViewController.title = "TestViewController"
         return testViewController

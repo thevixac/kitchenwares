@@ -1,4 +1,4 @@
-# KitchWares
+# KitchenWares
 
 ## Getting Started
 

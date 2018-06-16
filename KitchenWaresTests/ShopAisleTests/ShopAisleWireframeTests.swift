@@ -12,10 +12,11 @@ import XCTest
 class ShopAisleWireframeTests: XCTestCase {
     
     private var testObject: ShopAisleWireframe!
+    private var mockFactory: TestShopAisleFactory!
     override func setUp() {
         super.setUp()
-        let factory = TestShopAisleFactory()
-        testObject = ShopAisleWireframe(with: factory)
+        mockFactory = TestShopAisleFactory()
+        testObject = ShopAisleWireframe(with: mockFactory)
     }
     
     override func tearDown() {
@@ -27,12 +28,36 @@ class ShopAisleWireframeTests: XCTestCase {
      * When: Display is called
      * Then: The factory viewcontroller should be attached to the window
      */
-    func testDisplayUsesFactorViewController() {
+    func testDisplayUsesFactoryViewController() {
         let window = UIWindow(frame: .zero)
         XCTAssertNil(window.rootViewController)
         testObject.display(in: window)
         XCTAssertNotNil(window.rootViewController)
         XCTAssertEqual(window.rootViewController?.title, "TestViewController")
+    }
+    
+    /**
+    * When: Display is called
+    * Then: The interactor created by the factory should be passed to the presenter
+    */
+ 
+    func testDisplayUsesFactoryInteractor() {
+        let window = UIWindow(frame: .zero)
+        XCTAssertNil(window.rootViewController)
+        testObject.display(in: window)
+        XCTAssertTrue(mockFactory.presenterInput === mockFactory.mockInteractor)
+        XCTAssertTrue(mockFactory.viewControllersPresenter === mockFactory.mockPresenter)
+    }
+    
+    /**
+     * When: Display is called
+     * Then: The presenter created by the factory should be passed to the viewcontroller
+     */
+    func testDisplayUsesFactoryPresenter() {
+        let window = UIWindow(frame: .zero)
+        XCTAssertNil(window.rootViewController)
+        testObject.display(in: window)
+        XCTAssertTrue(mockFactory.presenterInput === mockFactory.mockInteractor)
     }
     
 }
