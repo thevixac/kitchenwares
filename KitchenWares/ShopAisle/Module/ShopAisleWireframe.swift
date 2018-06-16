@@ -7,3 +7,20 @@
 //
 
 import Foundation
+import UIKit
+
+class ShopAisleWireframe {
+    private var factory: ShopAisleFactory
+    init(with factory: ShopAisleFactory) {
+        self.factory = factory
+    }
+}
+
+extension ShopAisleWireframe: ShopAisleWireframeProtocol {
+    func display(in window: UIWindow) {
+        let vc = UIViewController()
+        vc.view.backgroundColor = .blue
+        vc.title = "Blue View Controller"
+        window.rootViewController = vc
+    }
+}

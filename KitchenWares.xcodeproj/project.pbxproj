@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1C30353520D3CE43007A0270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30353420D3CE43007A0270 /* AppDelegate.swift */; };
-		1C30353720D3CE43007A0270 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30353620D3CE43007A0270 /* ViewController.swift */; };
-		1C30353A20D3CE43007A0270 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C30353820D3CE43007A0270 /* Main.storyboard */; };
 		1C30353C20D3CE44007A0270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C30353B20D3CE44007A0270 /* Assets.xcassets */; };
 		1C30353F20D3CE44007A0270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C30353D20D3CE44007A0270 /* LaunchScreen.storyboard */; };
 		1C30354A20D3CE44007A0270 /* KitchenWaresTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30354920D3CE44007A0270 /* KitchenWaresTests.swift */; };
@@ -28,6 +26,15 @@
 		1C30357820D3D36E007A0270 /* ProductDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30357720D3D36E007A0270 /* ProductDetailsInteractorTests.swift */; };
 		1C30357A20D3D377007A0270 /* ProductDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30357920D3D377007A0270 /* ProductDetailsPresenterTests.swift */; };
 		1C30357C20D3D57C007A0270 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1C30357B20D3D57C007A0270 /* README.md */; };
+		1CB8DE0D20D5128900B645BB /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8DE0C20D5128900B645BB /* ShopItem.swift */; };
+		1CB8DE0F20D5129200B645BB /* ShopItemDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8DE0E20D5129200B645BB /* ShopItemDetails.swift */; };
+		1CBD1F6420D517020082F7B1 /* ShopAisleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6320D517020082F7B1 /* ShopAisleViewController.xib */; };
+		1CBD1F6620D517100082F7B1 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6520D517100082F7B1 /* ProductDetailsViewController.xib */; };
+		1CBD1F6B20D52AF80082F7B1 /* AppShopAisleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6A20D52AF80082F7B1 /* AppShopAisleFactory.swift */; };
+		1CBD1F6E20D534910082F7B1 /* ShopAisleMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6D20D534910082F7B1 /* ShopAisleMocks.swift */; };
+		1CBD1F7420D539CE0082F7B1 /* ShopAisleWireframeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD1F7320D539CE0082F7B1 /* ShopAisleWireframeTests.swift */; };
+		9DCA4B141F901F8BD5BF3CCA /* Pods_KitchenWaresTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6D6C7D3F5996B3B66A1A40C /* Pods_KitchenWaresTests.framework */; };
+		A8DC97D64DA178210A510A2E /* Pods_KitchenWares.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43771E987395D24F94A4B798 /* Pods_KitchenWares.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +50,6 @@
 /* Begin PBXFileReference section */
 		1C30353120D3CE43007A0270 /* KitchenWares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenWares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C30353420D3CE43007A0270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C30353620D3CE43007A0270 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1C30353920D3CE43007A0270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C30353B20D3CE44007A0270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C30353E20D3CE44007A0270 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C30354020D3CE44007A0270 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +71,19 @@
 		1C30357720D3D36E007A0270 /* ProductDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsInteractorTests.swift; sourceTree = "<group>"; };
 		1C30357920D3D377007A0270 /* ProductDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsPresenterTests.swift; sourceTree = "<group>"; };
 		1C30357B20D3D57C007A0270 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		1CB8DE0C20D5128900B645BB /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
+		1CB8DE0E20D5129200B645BB /* ShopItemDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemDetails.swift; sourceTree = "<group>"; };
+		1CBD1F6320D517020082F7B1 /* ShopAisleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopAisleViewController.xib; path = ../../../../kitchenwares/KitchenWares/ShopAisle/UI/ShopAisleViewController.xib; sourceTree = "<group>"; };
+		1CBD1F6520D517100082F7B1 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProductDetailsViewController.xib; path = ../../../../kitchenwares/KitchenWares/ProductDetails/UI/ProductDetailsViewController.xib; sourceTree = "<group>"; };
+		1CBD1F6A20D52AF80082F7B1 /* AppShopAisleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShopAisleFactory.swift; sourceTree = "<group>"; };
+		1CBD1F6D20D534910082F7B1 /* ShopAisleMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAisleMocks.swift; sourceTree = "<group>"; };
+		1CBD1F7320D539CE0082F7B1 /* ShopAisleWireframeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAisleWireframeTests.swift; sourceTree = "<group>"; };
+		3134EE5B2CDB200BFED8FE7B /* Pods-KitchenWares.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitchenWares.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitchenWares/Pods-KitchenWares.debug.xcconfig"; sourceTree = "<group>"; };
+		43771E987395D24F94A4B798 /* Pods_KitchenWares.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KitchenWares.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		470A93814221EF8A2EA05B86 /* Pods-KitchenWaresTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitchenWaresTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KitchenWaresTests/Pods-KitchenWaresTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4EC41C37C328545FCC802DE9 /* Pods-KitchenWaresTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitchenWaresTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KitchenWaresTests/Pods-KitchenWaresTests.release.xcconfig"; sourceTree = "<group>"; };
+		D3E4EEE7B1961FD28288D266 /* Pods-KitchenWares.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KitchenWares.release.xcconfig"; path = "Pods/Target Support Files/Pods-KitchenWares/Pods-KitchenWares.release.xcconfig"; sourceTree = "<group>"; };
+		F6D6C7D3F5996B3B66A1A40C /* Pods_KitchenWaresTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KitchenWaresTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8DC97D64DA178210A510A2E /* Pods_KitchenWares.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DCA4B141F901F8BD5BF3CCA /* Pods_KitchenWaresTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,6 +112,8 @@
 				1C30353320D3CE43007A0270 /* KitchenWares */,
 				1C30354820D3CE44007A0270 /* KitchenWaresTests */,
 				1C30353220D3CE43007A0270 /* Products */,
+				F30ADBE2984D6844B70920EA /* Pods */,
+				D265026E85E298DBEF4C05B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,12 +129,12 @@
 		1C30353320D3CE43007A0270 /* KitchenWares */ = {
 			isa = PBXGroup;
 			children = (
+				1CBD1F6920D52ACF0082F7B1 /* App */,
+				1CB8DE0B20D5127100B645BB /* Model */,
+				1C30357D20D409AC007A0270 /* Services */,
 				1C30355520D3D1C8007A0270 /* ProductDetails */,
 				1C30355420D3D17E007A0270 /* ShopAisle */,
-				1C30353420D3CE43007A0270 /* AppDelegate.swift */,
-				1C30353620D3CE43007A0270 /* ViewController.swift */,
 				1C30357B20D3D57C007A0270 /* README.md */,
-				1C30353820D3CE43007A0270 /* Main.storyboard */,
 				1C30353B20D3CE44007A0270 /* Assets.xcassets */,
 				1C30353D20D3CE44007A0270 /* LaunchScreen.storyboard */,
 				1C30354020D3CE44007A0270 /* Info.plist */,
@@ -173,6 +195,7 @@
 			children = (
 				1C30356D20D3D2EA007A0270 /* ShopAislePresenter.swift */,
 				1C30356F20D3D2F3007A0270 /* ShopAisleViewController.swift */,
+				1CBD1F6320D517020082F7B1 /* ShopAisleViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -182,6 +205,7 @@
 			children = (
 				1C30356320D3D27E007A0270 /* ProductDetailsPresenter.swift */,
 				1C30356520D3D293007A0270 /* ProductDetailsViewController.swift */,
+				1CBD1F6520D517100082F7B1 /* ProductDetailsViewController.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -217,8 +241,55 @@
 			children = (
 				1C30357320D3D35C007A0270 /* ShopAisleInteractorTests.swift */,
 				1C30357520D3D365007A0270 /* ShopAislePresenterTests.swift */,
+				1CBD1F6D20D534910082F7B1 /* ShopAisleMocks.swift */,
+				1CBD1F7320D539CE0082F7B1 /* ShopAisleWireframeTests.swift */,
 			);
 			path = ShopAisleTests;
+			sourceTree = "<group>";
+		};
+		1C30357D20D409AC007A0270 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1CB8DE0B20D5127100B645BB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CB8DE0C20D5128900B645BB /* ShopItem.swift */,
+				1CB8DE0E20D5129200B645BB /* ShopItemDetails.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CBD1F6920D52ACF0082F7B1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				1C30353420D3CE43007A0270 /* AppDelegate.swift */,
+				1CBD1F6A20D52AF80082F7B1 /* AppShopAisleFactory.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D265026E85E298DBEF4C05B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				43771E987395D24F94A4B798 /* Pods_KitchenWares.framework */,
+				F6D6C7D3F5996B3B66A1A40C /* Pods_KitchenWaresTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F30ADBE2984D6844B70920EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3134EE5B2CDB200BFED8FE7B /* Pods-KitchenWares.debug.xcconfig */,
+				D3E4EEE7B1961FD28288D266 /* Pods-KitchenWares.release.xcconfig */,
+				470A93814221EF8A2EA05B86 /* Pods-KitchenWaresTests.debug.xcconfig */,
+				4EC41C37C328545FCC802DE9 /* Pods-KitchenWaresTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +299,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C30354E20D3CE44007A0270 /* Build configuration list for PBXNativeTarget "KitchenWares" */;
 			buildPhases = (
+				C836C95FC9F5D851079FF8A5 /* [CP] Check Pods Manifest.lock */,
 				1C30352D20D3CE43007A0270 /* Sources */,
 				1C30352E20D3CE43007A0270 /* Frameworks */,
 				1C30352F20D3CE43007A0270 /* Resources */,
+				0E91CF3879232CDBBA6AA6D9 /* [CP] Embed Pods Frameworks */,
+				1CBD1F6C20D52F280082F7B1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -245,9 +319,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C30355120D3CE44007A0270 /* Build configuration list for PBXNativeTarget "KitchenWaresTests" */;
 			buildPhases = (
+				445D45807469E78A9107A376 /* [CP] Check Pods Manifest.lock */,
 				1C30354120D3CE44007A0270 /* Sources */,
 				1C30354220D3CE44007A0270 /* Frameworks */,
 				1C30354320D3CE44007A0270 /* Resources */,
+				1853D2BE01EF6E478761EB34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -303,9 +379,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C30353F20D3CE44007A0270 /* LaunchScreen.storyboard in Resources */,
+				1CBD1F6420D517020082F7B1 /* ShopAisleViewController.xib in Resources */,
 				1C30353C20D3CE44007A0270 /* Assets.xcassets in Resources */,
 				1C30357C20D3D57C007A0270 /* README.md in Resources */,
-				1C30353A20D3CE43007A0270 /* Main.storyboard in Resources */,
+				1CBD1F6620D517100082F7B1 /* ProductDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +394,94 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E91CF3879232CDBBA6AA6D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KitchenWares/Pods-KitchenWares-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KitchenWares/Pods-KitchenWares-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1853D2BE01EF6E478761EB34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-KitchenWaresTests/Pods-KitchenWaresTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KitchenWaresTests/Pods-KitchenWaresTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1CBD1F6C20D52F280082F7B1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		445D45807469E78A9107A376 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KitchenWaresTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C836C95FC9F5D851079FF8A5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KitchenWares-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1C30352D20D3CE43007A0270 /* Sources */ = {
@@ -331,7 +496,9 @@
 				1C30356420D3D27E007A0270 /* ProductDetailsPresenter.swift in Sources */,
 				1C30356E20D3D2EA007A0270 /* ShopAislePresenter.swift in Sources */,
 				1C30356020D3D255007A0270 /* ProductDetailsWireframe.swift in Sources */,
-				1C30353720D3CE43007A0270 /* ViewController.swift in Sources */,
+				1CB8DE0D20D5128900B645BB /* ShopItem.swift in Sources */,
+				1CB8DE0F20D5129200B645BB /* ShopItemDetails.swift in Sources */,
+				1CBD1F6B20D52AF80082F7B1 /* AppShopAisleFactory.swift in Sources */,
 				1C30353520D3CE43007A0270 /* AppDelegate.swift in Sources */,
 				1C30356220D3D26A007A0270 /* ProductDetailsInteractor.swift in Sources */,
 				1C30357020D3D2F3007A0270 /* ShopAisleViewController.swift in Sources */,
@@ -342,9 +509,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBD1F6E20D534910082F7B1 /* ShopAisleMocks.swift in Sources */,
 				1C30354A20D3CE44007A0270 /* KitchenWaresTests.swift in Sources */,
 				1C30357420D3D35C007A0270 /* ShopAisleInteractorTests.swift in Sources */,
 				1C30357A20D3D377007A0270 /* ProductDetailsPresenterTests.swift in Sources */,
+				1CBD1F7420D539CE0082F7B1 /* ShopAisleWireframeTests.swift in Sources */,
 				1C30357620D3D365007A0270 /* ShopAislePresenterTests.swift in Sources */,
 				1C30357820D3D36E007A0270 /* ProductDetailsInteractorTests.swift in Sources */,
 			);
@@ -361,14 +530,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1C30353820D3CE43007A0270 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1C30353920D3CE43007A0270 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1C30353D20D3CE44007A0270 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -496,6 +657,7 @@
 		};
 		1C30354F20D3CE44007A0270 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3134EE5B2CDB200BFED8FE7B /* Pods-KitchenWares.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -513,6 +675,7 @@
 		};
 		1C30355020D3CE44007A0270 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3E4EEE7B1961FD28288D266 /* Pods-KitchenWares.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +693,7 @@
 		};
 		1C30355220D3CE44007A0270 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 470A93814221EF8A2EA05B86 /* Pods-KitchenWaresTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -550,6 +714,7 @@
 		};
 		1C30355320D3CE44007A0270 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EC41C37C328545FCC802DE9 /* Pods-KitchenWaresTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

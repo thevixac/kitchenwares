@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+class ShopAislePresenter {
+    private let input: ShopAisleInteractorInput
+    init(with input: ShopAisleInteractorInput) {
+        self.input = input
+    }
+}
+
+extension ShopAislePresenter: ShopAisleInteractorOutput {
+    
+}

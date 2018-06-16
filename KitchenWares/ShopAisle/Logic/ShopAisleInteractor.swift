@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class ShopAisleInteractor {
+    weak var output: ShopAisleInteractorOutput?
+}
+
+extension ShopAisleInteractor: ShopAisleInteractorInput {
+    
+}
