@@ -25,6 +25,7 @@ extension AppShopAisleFactory: ShopAisleFactory {
     
     func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput & ShopAisleEventHandler {
         let presenter = ShopAislePresenter(with: input)
+        input.set(output: presenter)
         return presenter
     }
     

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C04E6FB20D6BA7500EA2725 /* ItemFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C04E6FA20D6BA7500EA2725 /* ItemFetcherTests.swift */; };
 		1C04E6FF20D6BC5E00EA2725 /* FoundationMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C04E6FE20D6BC5E00EA2725 /* FoundationMocks.swift */; };
+		1C04E70120D6DFC500EA2725 /* URLSessionOverride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C04E70020D6DFC500EA2725 /* URLSessionOverride.swift */; };
 		1C30353520D3CE43007A0270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30353420D3CE43007A0270 /* AppDelegate.swift */; };
 		1C30353C20D3CE44007A0270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C30353B20D3CE44007A0270 /* Assets.xcassets */; };
 		1C30353F20D3CE44007A0270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C30353D20D3CE44007A0270 /* LaunchScreen.storyboard */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		1C04E6FA20D6BA7500EA2725 /* ItemFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFetcherTests.swift; sourceTree = "<group>"; };
 		1C04E6FE20D6BC5E00EA2725 /* FoundationMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationMocks.swift; sourceTree = "<group>"; };
+		1C04E70020D6DFC500EA2725 /* URLSessionOverride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionOverride.swift; sourceTree = "<group>"; };
 		1C30353120D3CE43007A0270 /* KitchenWares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenWares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C30353420D3CE43007A0270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C30353B20D3CE44007A0270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			children = (
 				1C30353420D3CE43007A0270 /* AppDelegate.swift */,
 				1CBD1F6A20D52AF80082F7B1 /* AppShopAisleFactory.swift */,
+				1C04E70020D6DFC500EA2725 /* URLSessionOverride.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 				1C30353520D3CE43007A0270 /* AppDelegate.swift in Sources */,
 				1C8ACF4E20D664FA00878D36 /* ItemDetailsFetcher.swift in Sources */,
 				1C30356220D3D26A007A0270 /* ProductDetailsInteractor.swift in Sources */,
+				1C04E70120D6DFC500EA2725 /* URLSessionOverride.swift in Sources */,
 				1C30357020D3D2F3007A0270 /* ShopAisleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

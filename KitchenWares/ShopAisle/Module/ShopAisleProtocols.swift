@@ -15,6 +15,7 @@ protocol ShopAisleWireframeProtocol {
 
 protocol ShopAisleInteractorInput: class {
     func moduleDidLoad()
+    func set(output: ShopAisleInteractorOutput)
 }
 
 protocol ShopAisleInteractorOutput: class {

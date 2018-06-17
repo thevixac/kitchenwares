@@ -16,7 +16,7 @@ class DishwasherJSONParserTests: XCTestCase {
     override func setUp() {
         super.setUp()
         testObject = DishwasherJSONParser()
-    }
+    }   
     
     override func tearDown() {
         super.tearDown()

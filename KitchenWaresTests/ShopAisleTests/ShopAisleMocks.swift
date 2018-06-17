@@ -16,6 +16,11 @@ class MockShopAisleInteractor: ShopAisleInteractorInput {
     func moduleDidLoad() {
         moduleDidLoadCalled = true
     }
+    
+    var setOutput: ShopAisleInteractorOutput?
+    func set(output: ShopAisleInteractorOutput) {
+        setOutput = output
+    }
 }
 
 class MockShopAislePresenter: ShopAisleInteractorOutput, ShopAisleEventHandler {

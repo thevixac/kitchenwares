@@ -19,10 +19,14 @@ class ShopAisleInteractor {
 
 extension ShopAisleInteractor: ShopAisleInteractorInput {
     
+    func set(output: ShopAisleInteractorOutput) {
+        self.output = output
+    }
+    
     func moduleDidLoad() {
         self.itemFetcher.fetchItems { items, error in
-            guard error == nil else {
-                self.output?.errorFetchingItems(error: error!)
+            if let error = error {
+                self.output?.errorFetchingItems(error: error)
                 return
             }
             guard let items = items else {
@@ -30,7 +34,6 @@ extension ShopAisleInteractor: ShopAisleInteractorInput {
                 return
             }
             self.output?.didReceive(items: items)
-            
         }
     }
 }

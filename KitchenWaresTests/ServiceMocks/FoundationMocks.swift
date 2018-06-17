@@ -7,16 +7,15 @@
 //
 
 import Foundation
-
 @testable import KitchenWares
 
-fileprivate typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
 class MockURLSession: KitchenWares.URLSession {
+    public typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
     var dataToReturn: Data?
     var responseToReturn: URLResponse?
     var errorToReturn: Error?
     func dataTask(with url: URL,
-                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+                  completionHandler: @escaping (CompletionHandler)) -> URLSessionDataTask {
         return MockURLSessionDataTask(dataToReturn: dataToReturn,
                                       responseToReturn: responseToReturn,
                                       errorToReturn: errorToReturn,
@@ -28,17 +27,15 @@ private class MockURLSessionDataTask: URLSessionDataTask {
     var dataToReturn: Data?
     var responseToReturn: URLResponse?
     var errorToReturn: Error?
-    var completionHandler: CompletionHandler?
-    init(dataToReturn: Data?, responseToReturn: URLResponse?, errorToReturn: Error?, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+    var completionHandler: MockURLSession.CompletionHandler?
+    init(dataToReturn: Data?, responseToReturn: URLResponse?, errorToReturn: Error?, completion: @escaping (MockURLSession.CompletionHandler)) {
         self.dataToReturn = dataToReturn
         self.responseToReturn = responseToReturn
         self.errorToReturn = errorToReturn
         self.completionHandler = completion
     }
-    
-    
+
     override func resume() {
-        print("VX: resuming")
         completionHandler?(dataToReturn, responseToReturn, errorToReturn)
     }
 }

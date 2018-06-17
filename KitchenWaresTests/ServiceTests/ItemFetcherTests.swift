@@ -29,13 +29,13 @@ class ItemFetcherTests: XCTestCase {
         super.tearDown()
     }
     
-    //VXTODO this isnt a unit test, need to tell the parser what to do, not give it valid data.
     /**
      * When: Json is correctly returned to the fetcher
-     * Then: The shopItems should be returned
+     * Then: The shopItems created by the parser should be returned
      */
     func testValidFetch() {
         mockSession.dataToReturn = goodData()
+        mockParser.itemToReturn = ShopItem(productId: "id", title: "title", price: 1.0, imagePath: "path")
         let exp = expectation(description: "testValidFetch")
         testObject.fetchItems { result, error in
             XCTAssertNil(error)

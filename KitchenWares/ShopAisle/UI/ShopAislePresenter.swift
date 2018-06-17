@@ -23,10 +23,11 @@ extension ShopAislePresenter: ShopAisleEventHandler {
 
 extension ShopAislePresenter: ShopAisleInteractorOutput {
     func errorFetchingItems(error: ItemFetcherError) {
+        print("presenter errorFetchingItems: \(error)")
     }
     
     func didReceive(items: [ShopItem]) {
-    
+        print("presenter items: \(items)")
     }
 
 }

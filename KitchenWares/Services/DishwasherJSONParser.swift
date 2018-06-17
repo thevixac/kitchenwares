@@ -29,8 +29,31 @@ class DishwasherJSONParser: DishwasherParserProtocol {
     }
     
     func parse(item: Json) -> (item: ShopItem?, error: JsonParseError?) {
-        //VXTODO got to parse Json
-        return (nil, nil)
+        var field = Fields.productId.rawValue
+        guard let productId = item[field] as? String else {
+            return (nil, .missingField(field))
+        }
+        field = Fields.price.rawValue
+        guard let priceJson = item[field] as? Json else {
+            return (nil, .missingField(field))
+        }
+        field = Fields.now.rawValue
+        guard let nowPrice = priceJson[field] as? String else {
+            return (nil, .missingField(field))
+        }
+        guard let nowFloat = Float(nowPrice) else {
+            return (nil, .invalidType(field))
+        }
+
+        field = Fields.title.rawValue
+        guard let title = item[field] as? String else {
+            return (nil, .missingField(field))
+        }
+        field = Fields.image.rawValue
+        guard let imagePath = item[field] as? String else {
+            return (nil, .missingField(field))
+        }
+        return (ShopItem(productId: productId, title: title, price: nowFloat, imagePath: imagePath), nil)
     }
     
 }

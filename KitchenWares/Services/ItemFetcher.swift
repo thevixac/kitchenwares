@@ -18,18 +18,6 @@ protocol ItemFetcherProtocol: class {
     func fetchItems(completion: @escaping (([ShopItem]?, ItemFetcherError?) -> Void))
 }
 
-//VXTODO put somewhere better
-/*
- */
-public protocol URLSession {
-    func dataTask(with url: URL,
-                  completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask
-}
-
-extension Foundation.URLSession: URLSession {
-    
-}
-
 class ItemFetcher: ItemFetcherProtocol {
     
     private let endpoint: URL
@@ -39,11 +27,34 @@ class ItemFetcher: ItemFetcherProtocol {
         self.endpoint = endpoint
         self.parser = parser
         self.session = session
-        
     }
     
     func fetchItems(completion: @escaping (([ShopItem]?, ItemFetcherError?) -> Void)) {
-        let task = session.dataTask(with: self.endpoint) { data, response, error in
+        let task = session.dataTask(with: self.endpoint) { data, _, error in
+            if let error = error {
+                completion(nil, ItemFetcherError.network(error))
+                return
+            }
+            guard let data = data else {
+                completion(nil, ItemFetcherError.noData)
+                return
+            }
+            guard let parsedData = try? JSONSerialization.jsonObject(with: data) else {
+                completion(nil, ItemFetcherError.parsingError)
+                return
+            }
+            guard let parsedJson = parsedData as? [String: Any] else {
+                completion(nil, ItemFetcherError.parsingError)
+                return
+            }
+            guard let products = parsedJson["products"] as? [Json] else {
+                completion(nil, ItemFetcherError.parsingError)
+                return
+            }
+            let shopItems: [ShopItem] = products.compactMap {
+                return self.parser.parse(item: $0).item
+            }
+            completion(shopItems, nil)
             
         }
         task.resume()
