@@ -17,4 +17,5 @@ class MockItemFetcher: ItemFetcherProtocol {
         fetchCalled = true
         completion(itemsToReturn, errorToReturn)
     }
+    
 }

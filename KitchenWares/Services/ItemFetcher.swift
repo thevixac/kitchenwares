@@ -27,7 +27,7 @@ class ItemFetcher: ItemFetcherProtocol {
     
     func fetchItems(completion: @escaping (([ShopItem]?, ItemFetcherError?) -> Void)) {
         let task = URLSession.shared.dataTask(with: self.endpoint) {data, response, error in
-                //TODO handle response.
+            //VXTODO got to handle response.
         }
         task.resume()
     }
