@@ -17,7 +17,8 @@ extension AppShopAisleFactory: ShopAisleFactory {
     func interactor() -> ShopAisleInteractorInput {
         
         let urls = JohnLewisURL()
-        let fetcher = ItemFetcher(endpoint: urls.itemFetcherURL())
+        let parser = DishwasherJSONParser()
+        let fetcher = ItemFetcher(endpoint: urls.itemFetcherURL(), parser: parser, session: Foundation.URLSession.shared)
         let interactor = ShopAisleInteractor(itemFetcher: fetcher)
         return interactor
     }

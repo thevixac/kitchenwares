@@ -19,3 +19,11 @@ class MockItemFetcher: ItemFetcherProtocol {
     }
     
 }
+
+class MockDishwaserJsonParser: DishwasherParserProtocol {
+    var itemToReturn: ShopItem?
+    var errorToReturn: JsonParseError?
+    func parse(item: Json) -> (item: ShopItem?, error: JsonParseError?) {
+        return (itemToReturn, errorToReturn)
+    }
+}

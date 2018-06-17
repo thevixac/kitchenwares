@@ -29,7 +29,14 @@ class DishwasherJSONParserTests: XCTestCase {
     func testValidInput() {
         let result = testObject.parse(item: validJson())
         XCTAssertNil(result.error)
-        XCTAssertNotNil(result.item)
+        guard let item = result.item else {
+            XCTFail("Missing Item.")
+            return
+        }
+        XCTAssertEqual(item.productId, "3215462")
+        XCTAssertEqual(item.imagePath, "//johnlewis.scene7.com/is/image/JohnLewis/236888507?")
+        XCTAssertEqual(item.price, 349.00)
+        XCTAssertEqual(item.title, "Bosch SMS25AW00G Freestanding Dishwasher, White")
     }
     
     /**
@@ -41,17 +48,15 @@ class DishwasherJSONParserTests: XCTestCase {
         json["productId"] = nil
         let result = testObject.parse(item: json)
         XCTAssertNil(result.item)
-        guard let error = result.error else {
-            XCTFail("Missing error.")
-            return
-        }
-        if case JsonParseError.missingField(let field) = error {
-            if field != "productId" {
-                XCTFail("Wrong error field.")
+        let exp = expectation(description: "testMissingProductId")
+        if let error = result.error {
+            if case JsonParseError.missingField(let field) = error {
+                if field == "productId" {
+                    exp.fulfill()
+                }
             }
-        } else {
-            XCTFail("Wrong error type.")
         }
+        waitForExpectations(timeout: 0)
     }
 
     /**
@@ -63,17 +68,15 @@ class DishwasherJSONParserTests: XCTestCase {
         json["title"] = nil
         let result = testObject.parse(item: json)
         XCTAssertNil(result.item)
-        guard let error = result.error else {
-            XCTFail("Missing error.")
-            return
-        }
-        if case JsonParseError.missingField(let field) = error {
-            if field != "title" {
-                XCTFail("Wrong error field.")
+        let exp = expectation(description: "testMissingTitle")
+        if let error = result.error {
+            if case JsonParseError.missingField(let field) = error {
+                if field == "title" {
+                    exp.fulfill()
+                }
             }
-        } else {
-            XCTFail("Wrong error type.")
         }
+        waitForExpectations(timeout: 0)
     }
     
     /**
@@ -85,17 +88,15 @@ class DishwasherJSONParserTests: XCTestCase {
         json["image"] = nil
         let result = testObject.parse(item: json)
         XCTAssertNil(result.item)
-        guard let error = result.error else {
-            XCTFail("Missing error.")
-            return
-        }
-        if case JsonParseError.missingField(let field) = error {
-            if field != "image" {
-                XCTFail("Wrong error field.")
+        let exp = expectation(description: "testMissingImage")
+        if let error = result.error {
+            if case JsonParseError.missingField(let field) = error {
+                if field == "image" {
+                    exp.fulfill()
+                }
             }
-        } else {
-            XCTFail("Wrong error type.")
         }
+        waitForExpectations(timeout: 0)
     }
     /**
      * When: price is missing
@@ -106,17 +107,15 @@ class DishwasherJSONParserTests: XCTestCase {
         json["price"] = nil
         let result = testObject.parse(item: json)
         XCTAssertNil(result.item)
-        guard let error = result.error else {
-            XCTFail("Missing error.")
-            return
-        }
-        if case JsonParseError.missingField(let field) = error {
-            if field != "price" {
-                XCTFail("Wrong error field.")
+        let exp = expectation(description: "testMissingPrice")
+        if let error = result.error {
+            if case JsonParseError.missingField(let field) = error {
+                if field == "price" {
+                    exp.fulfill()
+                }
             }
-        } else {
-            XCTFail("Wrong error type.")
         }
+        waitForExpectations(timeout: 0)
     }
     
     /**
@@ -127,17 +126,15 @@ class DishwasherJSONParserTests: XCTestCase {
         let json = noNowPriceJson()
         let result = testObject.parse(item: json)
         XCTAssertNil(result.item)
-        guard let error = result.error else {
-            XCTFail("Missing error.")
-            return
-        }
-        if case JsonParseError.missingField(let field) = error {
-            if field != "now" {
-                XCTFail("Wrong error field.")
+        let exp = expectation(description: "testMissingNow")
+        if let error = result.error {
+            if case JsonParseError.missingField(let field) = error {
+                if field == "now" {
+                    exp.fulfill()
+                }
             }
-        } else {
-            XCTFail("Wrong error type.")
         }
+        waitForExpectations(timeout: 0)
     }
     
     /**
@@ -148,17 +145,15 @@ class DishwasherJSONParserTests: XCTestCase {
         let json = invalidNowPriceJson()
         let result = testObject.parse(item: json)
         XCTAssertNil(result.item)
-        guard let error = result.error else {
-            XCTFail("Missing error.")
-            return
-        }
-        if case JsonParseError.invalidType(let field) = error {
-            if field != "now" {
-                XCTFail("Wrong error field.")
+        let exp = expectation(description: "testNowIsNaN")
+        if let error = result.error {
+            if case JsonParseError.invalidType(let field) = error {
+                if field == "now" {
+                    exp.fulfill()
+                }
             }
-        } else {
-            XCTFail("Wrong error type.")
         }
+        waitForExpectations(timeout: 0)
     }
     
     private func validJson() -> Json {

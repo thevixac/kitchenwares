@@ -42,7 +42,15 @@ class ShopAisleInteractorTests: XCTestCase {
     func testPresenterGetsFetchErrors() {
         mockFetcher.errorToReturn = ItemFetcherError.parsingError
         testObject.moduleDidLoad()
-        XCTAssertEqual(mockPresenter.errorFromFetching, ItemFetcherError.parsingError)
+        guard let error = mockPresenter.errorFromFetching else {
+            XCTFail("Missing error.")
+            return
+        }
+        if case ItemFetcherError.parsingError = error {
+            //correct
+        } else {
+            XCTFail("Incorrect error returned.")
+        }
     }
     
     /**

@@ -8,13 +8,17 @@
 
 import Foundation
 
+typealias Json = [String: Any]
 enum JsonParseError {
     case missingField(String)
     case invalidType(String)
 }
 
-typealias Json = [String: Any]
-class DishwasherJSONParser {
+protocol DishwasherParserProtocol {
+    func parse(item: Json) -> (item: ShopItem?, error: JsonParseError?)
+}
+
+class DishwasherJSONParser: DishwasherParserProtocol {
     
     private enum Fields: String {
         case productId
