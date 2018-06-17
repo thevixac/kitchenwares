@@ -17,7 +17,7 @@ class ShopAislePresenter {
 
 extension ShopAislePresenter: ShopAisleEventHandler {
     func viewWillAppear() {
-        
+        input.moduleDidLoad()
     }
 }
 

@@ -28,6 +28,6 @@ protocol ShopAisleEventHandler: class {
 protocol ShopAisleFactory: class {
     func interactor() -> ShopAisleInteractorInput
     func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput & ShopAisleEventHandler
-    func viewController(with presenter: ShopAisleInteractorOutput) -> UIViewController
+    func viewController(with presenter: ShopAisleEventHandler) -> UIViewController
     func wireframe() -> ShopAisleWireframeProtocol
 }

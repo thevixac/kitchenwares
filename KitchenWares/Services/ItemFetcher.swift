@@ -11,6 +11,7 @@ import Foundation
 enum ItemFetcherError: Error {
     case networkError
     case parsingError
+    case noData
 }
 
 protocol ItemFetcherProtocol: class {
@@ -26,7 +27,7 @@ class ItemFetcher: ItemFetcherProtocol {
     
     func fetchItems(completion: @escaping (([ShopItem]?, ItemFetcherError?) -> Void)) {
         let task = URLSession.shared.dataTask(with: self.endpoint) {data, response, error in
-            //TODO handle response.
+                //TODO handle response.
         }
         task.resume()
     }

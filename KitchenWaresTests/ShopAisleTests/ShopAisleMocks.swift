@@ -43,7 +43,6 @@ class MockShopAisleWireframe: ShopAisleWireframeProtocol {
 }
 
 class TestShopAisleFactory: ShopAisleFactory {
-    
     var interactorCalled = false
     let mockInteractor = MockShopAisleInteractor()
     func interactor() -> ShopAisleInteractorInput {
@@ -60,8 +59,8 @@ class TestShopAisleFactory: ShopAisleFactory {
     }
     
     var viewControllerCalled = false
-    var viewControllersPresenter: ShopAisleInteractorOutput?
-    func viewController(with presenter: ShopAisleInteractorOutput) -> UIViewController {
+    var viewControllersPresenter: ShopAisleEventHandler?
+    func viewController(with presenter: ShopAisleEventHandler) -> UIViewController {
         viewControllerCalled = true
         viewControllersPresenter = presenter
         let testViewController = UIViewController()
