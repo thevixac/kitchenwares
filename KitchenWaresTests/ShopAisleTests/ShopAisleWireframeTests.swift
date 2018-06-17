@@ -40,7 +40,6 @@ class ShopAisleWireframeTests: XCTestCase {
     * When: Display is called
     * Then: The interactor created by the factory should be passed to the presenter
     */
- 
     func testDisplayUsesFactoryInteractor() {
         let window = UIWindow(frame: .zero)
         XCTAssertNil(window.rootViewController)

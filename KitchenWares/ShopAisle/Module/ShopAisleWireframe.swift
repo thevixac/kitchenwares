@@ -18,9 +18,9 @@ class ShopAisleWireframe {
 
 extension ShopAisleWireframe: ShopAisleWireframeProtocol {
     func display(in window: UIWindow) {
-        let vc = UIViewController()
-        vc.view.backgroundColor = .blue
-        vc.title = "Blue View Controller"
-        window.rootViewController = vc
+        let interactor = self.factory.interactor()
+        let presenter = self.factory.presenter(with: interactor)
+        let viewController = self.factory.viewController(with: presenter)
+        window.rootViewController = viewController
     }
 }
