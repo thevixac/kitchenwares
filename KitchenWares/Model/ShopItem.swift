@@ -9,7 +9,7 @@
 import Foundation
 
 struct ShopItem {
-    let productId: String
+    let productId: ProductId
     let title: String
     let price: Float
     let imagePath: String

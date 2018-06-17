@@ -21,6 +21,8 @@ extension ShopAisleWireframe: ShopAisleWireframeProtocol {
         let interactor = factory.interactor()
         let presenter = factory.presenter(with: interactor)
         let viewController = factory.viewController(with: presenter)
-        window.rootViewController = viewController
+        let nav = UINavigationController()
+        nav.setViewControllers([viewController], animated: false)
+        window.rootViewController = nav 
     }
 }

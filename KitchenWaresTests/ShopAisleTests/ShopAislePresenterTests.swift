@@ -31,4 +31,6 @@ class ShopAislePresenterTests: XCTestCase {
         XCTAssert(mockInteractor.moduleDidLoadCalled)
     }
     
+    
+    
 }

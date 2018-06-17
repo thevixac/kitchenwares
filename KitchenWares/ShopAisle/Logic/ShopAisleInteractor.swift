@@ -18,6 +18,12 @@ class ShopAisleInteractor {
 }
 
 extension ShopAisleInteractor: ShopAisleInteractorInput {
+    func imageRequestedFor(item: ShopItem) {
+        guard let url = URL(string:"http:" + item.imagePath) else {
+            return
+        }
+    }
+    
     
     func set(output: ShopAisleInteractorOutput) {
         self.output = output

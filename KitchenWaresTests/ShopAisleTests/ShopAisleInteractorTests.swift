@@ -52,7 +52,7 @@ class ShopAisleInteractorTests: XCTestCase {
     }
     
     /**
-     * When: ItemFetcher succeed
+     * When: ItemFetcher succeeds
      * Then: The presenter should be passed the items to display
      */
     func testPresenterGetsItemsToDisplay() {

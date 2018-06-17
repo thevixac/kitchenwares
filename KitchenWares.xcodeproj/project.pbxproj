@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		1C04E6FB20D6BA7500EA2725 /* ItemFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C04E6FA20D6BA7500EA2725 /* ItemFetcherTests.swift */; };
 		1C04E6FF20D6BC5E00EA2725 /* FoundationMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C04E6FE20D6BC5E00EA2725 /* FoundationMocks.swift */; };
-		1C04E70120D6DFC500EA2725 /* URLSessionOverride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C04E70020D6DFC500EA2725 /* URLSessionOverride.swift */; };
+		1C04E70120D6DFC500EA2725 /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C04E70020D6DFC500EA2725 /* FoundationExtensions.swift */; };
+		1C04E70320D6E94600EA2725 /* ShopAisleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C04E70220D6E94600EA2725 /* ShopAisleCell.swift */; };
+		1C04E70520D6EAAA00EA2725 /* ShopAisleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C04E70420D6EAAA00EA2725 /* ShopAisleCell.xib */; };
 		1C30353520D3CE43007A0270 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30353420D3CE43007A0270 /* AppDelegate.swift */; };
 		1C30353C20D3CE44007A0270 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C30353B20D3CE44007A0270 /* Assets.xcassets */; };
 		1C30353F20D3CE44007A0270 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C30353D20D3CE44007A0270 /* LaunchScreen.storyboard */; };
@@ -39,7 +41,6 @@
 		1C8ACF5B20D6AF6300878D36 /* DishwasherJSONParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8ACF5A20D6AF6300878D36 /* DishwasherJSONParserTests.swift */; };
 		1CB8DE0D20D5128900B645BB /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8DE0C20D5128900B645BB /* ShopItem.swift */; };
 		1CB8DE0F20D5129200B645BB /* ShopItemDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8DE0E20D5129200B645BB /* ShopItemDetails.swift */; };
-		1CBD1F6420D517020082F7B1 /* ShopAisleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6320D517020082F7B1 /* ShopAisleViewController.xib */; };
 		1CBD1F6620D517100082F7B1 /* ProductDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6520D517100082F7B1 /* ProductDetailsViewController.xib */; };
 		1CBD1F6B20D52AF80082F7B1 /* AppShopAisleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6A20D52AF80082F7B1 /* AppShopAisleFactory.swift */; };
 		1CBD1F6E20D534910082F7B1 /* ShopAisleMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6D20D534910082F7B1 /* ShopAisleMocks.swift */; };
@@ -61,7 +62,9 @@
 /* Begin PBXFileReference section */
 		1C04E6FA20D6BA7500EA2725 /* ItemFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFetcherTests.swift; sourceTree = "<group>"; };
 		1C04E6FE20D6BC5E00EA2725 /* FoundationMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationMocks.swift; sourceTree = "<group>"; };
-		1C04E70020D6DFC500EA2725 /* URLSessionOverride.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionOverride.swift; sourceTree = "<group>"; };
+		1C04E70020D6DFC500EA2725 /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
+		1C04E70220D6E94600EA2725 /* ShopAisleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAisleCell.swift; sourceTree = "<group>"; };
+		1C04E70420D6EAAA00EA2725 /* ShopAisleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopAisleCell.xib; sourceTree = "<group>"; };
 		1C30353120D3CE43007A0270 /* KitchenWares.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KitchenWares.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C30353420D3CE43007A0270 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C30353B20D3CE44007A0270 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,7 +98,6 @@
 		1C8ACF5A20D6AF6300878D36 /* DishwasherJSONParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishwasherJSONParserTests.swift; sourceTree = "<group>"; };
 		1CB8DE0C20D5128900B645BB /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
 		1CB8DE0E20D5129200B645BB /* ShopItemDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemDetails.swift; sourceTree = "<group>"; };
-		1CBD1F6320D517020082F7B1 /* ShopAisleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopAisleViewController.xib; path = ../../../../kitchenwares/KitchenWares/ShopAisle/UI/ShopAisleViewController.xib; sourceTree = "<group>"; };
 		1CBD1F6520D517100082F7B1 /* ProductDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProductDetailsViewController.xib; path = ../../../../kitchenwares/KitchenWares/ProductDetails/UI/ProductDetailsViewController.xib; sourceTree = "<group>"; };
 		1CBD1F6A20D52AF80082F7B1 /* AppShopAisleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShopAisleFactory.swift; sourceTree = "<group>"; };
 		1CBD1F6D20D534910082F7B1 /* ShopAisleMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopAisleMocks.swift; sourceTree = "<group>"; };
@@ -227,7 +229,8 @@
 			children = (
 				1C30356D20D3D2EA007A0270 /* ShopAislePresenter.swift */,
 				1C30356F20D3D2F3007A0270 /* ShopAisleViewController.swift */,
-				1CBD1F6320D517020082F7B1 /* ShopAisleViewController.xib */,
+				1C04E70220D6E94600EA2725 /* ShopAisleCell.swift */,
+				1C04E70420D6EAAA00EA2725 /* ShopAisleCell.xib */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -324,7 +327,7 @@
 			children = (
 				1C30353420D3CE43007A0270 /* AppDelegate.swift */,
 				1CBD1F6A20D52AF80082F7B1 /* AppShopAisleFactory.swift */,
-				1C04E70020D6DFC500EA2725 /* URLSessionOverride.swift */,
+				1C04E70020D6DFC500EA2725 /* FoundationExtensions.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -433,8 +436,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C04E70520D6EAAA00EA2725 /* ShopAisleCell.xib in Resources */,
 				1C30353F20D3CE44007A0270 /* LaunchScreen.storyboard in Resources */,
-				1CBD1F6420D517020082F7B1 /* ShopAisleViewController.xib in Resources */,
 				1C30353C20D3CE44007A0270 /* Assets.xcassets in Resources */,
 				1C30357C20D3D57C007A0270 /* README.md in Resources */,
 				1CBD1F6620D517100082F7B1 /* ProductDetailsViewController.xib in Resources */,
@@ -522,11 +525,12 @@
 				1CB8DE0D20D5128900B645BB /* ShopItem.swift in Sources */,
 				1C8ACF5620D68FFD00878D36 /* JohnLewisURL.swift in Sources */,
 				1CB8DE0F20D5129200B645BB /* ShopItemDetails.swift in Sources */,
+				1C04E70320D6E94600EA2725 /* ShopAisleCell.swift in Sources */,
 				1CBD1F6B20D52AF80082F7B1 /* AppShopAisleFactory.swift in Sources */,
 				1C30353520D3CE43007A0270 /* AppDelegate.swift in Sources */,
 				1C8ACF4E20D664FA00878D36 /* ItemDetailsFetcher.swift in Sources */,
 				1C30356220D3D26A007A0270 /* ProductDetailsInteractor.swift in Sources */,
-				1C04E70120D6DFC500EA2725 /* URLSessionOverride.swift in Sources */,
+				1C04E70120D6DFC500EA2725 /* FoundationExtensions.swift in Sources */,
 				1C30357020D3D2F3007A0270 /* ShopAisleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,16 @@ import UIKit
 @testable import KitchenWares
 
 class MockShopAisleInteractor: ShopAisleInteractorInput {
+    
+    //VXTODO one or the other.
+    func imageRequestedFor(item: ShopItem) {
+        
+    }
+    
+    func imageRequestedFor(productId: String) {
+        
+    }
+    
     var moduleDidLoadCalled = false
     func moduleDidLoad() {
         moduleDidLoadCalled = true
@@ -24,6 +34,18 @@ class MockShopAisleInteractor: ShopAisleInteractorInput {
 }
 
 class MockShopAislePresenter: ShopAisleInteractorOutput, ShopAisleEventHandler {
+    func itemWillAppear(item: ShopItem) {
+        
+    }
+    
+    func imageReceived(productId: ProductId, data: Data?) {
+        
+    }
+    
+    func itemWillAppear(productId: ProductId) {
+        
+    }
+    
     var errorFromFetching: ItemFetcherError?
     func errorFetchingItems(error: ItemFetcherError) {
         errorFromFetching = error
@@ -37,6 +59,33 @@ class MockShopAislePresenter: ShopAisleInteractorOutput, ShopAisleEventHandler {
     var viewWillAppearCalled = false
     func viewWillAppear() {
         viewWillAppearCalled = true
+    }
+    
+    var setView: ShopAisleView?
+    func set(view: ShopAisleView) {
+        setView = view
+    }
+}
+
+class MockShopAisleView: ShopAisleEventHandler {
+    var viewWillAppearCalled = false
+    func viewWillAppear() {
+        viewWillAppearCalled = true
+    }
+    
+    var itemToAppear: ShopItem?
+    func itemWillAppear(item: ShopItem) {
+        itemToAppear = item
+    }
+    
+    var setCalledView: ShopAisleView?
+    func set(view: ShopAisleView) {
+        setCalledView = view
+    }
+    
+    var productIdAppear: ProductId?
+    func itemWillAppear(productId: ProductId) {
+        productIdAppear = productId
     }
 }
 

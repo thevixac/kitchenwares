@@ -31,6 +31,7 @@ extension AppShopAisleFactory: ShopAisleFactory {
     
     func viewController(with presenter: ShopAisleEventHandler) -> UIViewController {
         let vc = ShopAisleViewController(eventHandler: presenter)
+        presenter.set(view: vc)
         return vc
     }
     
