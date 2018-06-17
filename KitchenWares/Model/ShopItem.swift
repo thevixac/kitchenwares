@@ -9,5 +9,8 @@
 import Foundation
 
 struct ShopItem {
-    
+    let id: Int
+    let title: String
+    let price: Float
+    let imagePath: URL
 }

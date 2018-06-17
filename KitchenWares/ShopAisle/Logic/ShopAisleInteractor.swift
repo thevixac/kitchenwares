@@ -10,8 +10,15 @@ import Foundation
 
 class ShopAisleInteractor {
     weak var output: ShopAisleInteractorOutput?
+    private let itemFetcher: ItemFetcherProtocol
+    
+    init(itemFetcher: ItemFetcherProtocol) {
+        self.itemFetcher = itemFetcher
+    }
 }
 
 extension ShopAisleInteractor: ShopAisleInteractorInput {
     
+    func moduleDidLoad() {
+    }
 }

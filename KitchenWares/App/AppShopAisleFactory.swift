@@ -15,11 +15,12 @@ class AppShopAisleFactory {
 extension AppShopAisleFactory: ShopAisleFactory {
     
     func interactor() -> ShopAisleInteractorInput {
-        let interactor = ShopAisleInteractor()
+        let fetcher = ItemFetcher(endpoint: URL(fileURLWithPath: "TODO"))
+        let interactor = ShopAisleInteractor(itemFetcher: fetcher)
         return interactor
     }
     
-    func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput {
+    func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput & ShopAisleEventHandler {
         let presenter = ShopAislePresenter(with: input)
         return presenter
     }

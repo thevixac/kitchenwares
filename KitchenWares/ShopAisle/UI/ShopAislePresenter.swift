@@ -15,6 +15,18 @@ class ShopAislePresenter {
     }
 }
 
+extension ShopAislePresenter: ShopAisleEventHandler {
+    func viewWillAppear() {
+        
+    }
+}
+
 extension ShopAislePresenter: ShopAisleInteractorOutput {
+    func errorFetchingItems(error: ItemFetcherError) {
+    }
     
+    func didReceive(items: [ShopItem]) {
+    
+    }
+
 }

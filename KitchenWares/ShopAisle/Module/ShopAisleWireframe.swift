@@ -18,9 +18,9 @@ class ShopAisleWireframe {
 
 extension ShopAisleWireframe: ShopAisleWireframeProtocol {
     func display(in window: UIWindow) {
-        let interactor = self.factory.interactor()
-        let presenter = self.factory.presenter(with: interactor)
-        let viewController = self.factory.viewController(with: presenter)
+        let interactor = factory.interactor()
+        let presenter = factory.presenter(with: interactor)
+        let viewController = factory.viewController(with: presenter)
         window.rootViewController = viewController
     }
 }

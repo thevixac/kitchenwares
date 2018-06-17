@@ -12,17 +12,33 @@ import UIKit
 @testable import KitchenWares
 
 class MockShopAisleInteractor: ShopAisleInteractorInput {
-    
+    var moduleDidLoadCalled = false
+    func moduleDidLoad() {
+        moduleDidLoadCalled = true
+    }
 }
 
-class MockShopAislePresenter: ShopAisleInteractorOutput {
+class MockShopAislePresenter: ShopAisleInteractorOutput, ShopAisleEventHandler {
+    var errorFromFetching: ItemFetcherError?
+    func errorFetchingItems(error: ItemFetcherError) {
+        errorFromFetching = error
+    }
     
+    var items: [ShopItem]?
+    func didReceive(items: [ShopItem]) {
+        self.items = items
+    }
+    
+    var viewWillAppearCalled = false
+    func viewWillAppear() {
+        viewWillAppearCalled = true
+    }
 }
 
 class MockShopAisleWireframe: ShopAisleWireframeProtocol {
     var displayCalled = false
     func display(in window: UIWindow) {
-        self.displayCalled = true
+        displayCalled = true
     }
 }
 
@@ -31,23 +47,23 @@ class TestShopAisleFactory: ShopAisleFactory {
     var interactorCalled = false
     let mockInteractor = MockShopAisleInteractor()
     func interactor() -> ShopAisleInteractorInput {
-        self.interactorCalled = true
+        interactorCalled = true
         return mockInteractor
     }
     var presenterCalled = false
     var presenterInput: ShopAisleInteractorInput?
     let mockPresenter = MockShopAislePresenter()
-    func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput {
-        self.presenterCalled = true
-        self.presenterInput = input
+    func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput & ShopAisleEventHandler {
+        presenterCalled = true
+        presenterInput = input
         return mockPresenter
     }
     
     var viewControllerCalled = false
     var viewControllersPresenter: ShopAisleInteractorOutput?
     func viewController(with presenter: ShopAisleInteractorOutput) -> UIViewController {
-        self.viewControllerCalled = true
-        self.viewControllersPresenter = presenter
+        viewControllerCalled = true
+        viewControllersPresenter = presenter
         let testViewController = UIViewController()
         testViewController.title = "TestViewController"
         return testViewController
@@ -55,7 +71,7 @@ class TestShopAisleFactory: ShopAisleFactory {
     
     var wireframeCalled = false
     func wireframe() -> ShopAisleWireframeProtocol {
-        self.wireframeCalled = true
+        wireframeCalled = true
         return MockShopAisleWireframe()
     }
 }

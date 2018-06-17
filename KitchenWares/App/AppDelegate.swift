@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let localWindow = UIWindow(frame: UIScreen.main.bounds)
-        self.window = localWindow
+        window = localWindow
         localWindow.backgroundColor = .black
         localWindow.makeKeyAndVisible()
         let appFactory = AppShopAisleFactory()

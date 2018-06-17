@@ -14,16 +14,20 @@ protocol ShopAisleWireframeProtocol {
 }
 
 protocol ShopAisleInteractorInput: class {
-    
+    func moduleDidLoad()
 }
 
 protocol ShopAisleInteractorOutput: class {
-    
+    func didReceive(items: [ShopItem])
+    func errorFetchingItems(error: ItemFetcherError)
+}
+protocol ShopAisleEventHandler: class {
+    func viewWillAppear()
 }
 
 protocol ShopAisleFactory: class {
     func interactor() -> ShopAisleInteractorInput
-    func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput
+    func presenter(with input: ShopAisleInteractorInput) -> ShopAisleInteractorOutput & ShopAisleEventHandler
     func viewController(with presenter: ShopAisleInteractorOutput) -> UIViewController
     func wireframe() -> ShopAisleWireframeProtocol
 }

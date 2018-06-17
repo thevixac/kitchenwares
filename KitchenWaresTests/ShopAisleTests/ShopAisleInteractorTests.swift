@@ -11,26 +11,49 @@ import XCTest
 
 class ShopAisleInteractorTests: XCTestCase {
     
+    private var testObject: ShopAisleInteractor!
+    private var mockFetcher: MockItemFetcher!
+    private var mockPresenter: MockShopAislePresenter!
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        mockFetcher = MockItemFetcher()
+        testObject = ShopAisleInteractor(itemFetcher: mockFetcher)
+        mockPresenter = MockShopAislePresenter()
+        testObject.output = mockPresenter
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    /**
+     * When: Module loads
+     * Then: The fetcher should be called to fetch items
+     */
+    func testFetcherIsCalledWhenModuleLoads() {
+        testObject.moduleDidLoad()
+        XCTAssert(mockFetcher.fetchCalled)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    /**
+     * When: ItemFetcher fails
+     * Then: The presenter should be passed the error
+     */
+    func testPresenterGetsFetchErrors() {
+        mockFetcher.errorToReturn = ItemFetcherError.parsingError
+        testObject.moduleDidLoad()
+        XCTAssertEqual(mockPresenter.errorFromFetching, ItemFetcherError.parsingError)
     }
     
+    /**
+     * When: ItemFetcher succeed
+     * Then: The presenter should be passed the items to display
+     */
+    func testPresenterGetsItemsToDisplay() {
+        mockFetcher.itemsToReturn = [ShopItem(id: 0, title: "test1", price: 0.1, imagePath: URL(fileURLWithPath: "test"))]
+        testObject.moduleDidLoad()
+        XCTAssertNotNil(mockPresenter.items)
+        XCTAssertEqual(mockPresenter.items?.count, 1)
+        XCTAssertEqual(mockPresenter.items?[0].title, "test1")
+    }
 }

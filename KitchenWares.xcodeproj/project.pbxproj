@@ -26,6 +26,10 @@
 		1C30357820D3D36E007A0270 /* ProductDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30357720D3D36E007A0270 /* ProductDetailsInteractorTests.swift */; };
 		1C30357A20D3D377007A0270 /* ProductDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C30357920D3D377007A0270 /* ProductDetailsPresenterTests.swift */; };
 		1C30357C20D3D57C007A0270 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1C30357B20D3D57C007A0270 /* README.md */; };
+		1C8ACF4A20D6647500878D36 /* ItemFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8ACF4920D6647500878D36 /* ItemFetcher.swift */; };
+		1C8ACF4C20D664F300878D36 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8ACF4B20D664F300878D36 /* ImageLoader.swift */; };
+		1C8ACF4E20D664FA00878D36 /* ItemDetailsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8ACF4D20D664FA00878D36 /* ItemDetailsFetcher.swift */; };
+		1C8ACF5120D66F8E00878D36 /* MockFetchers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8ACF5020D66F8E00878D36 /* MockFetchers.swift */; };
 		1CB8DE0D20D5128900B645BB /* ShopItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8DE0C20D5128900B645BB /* ShopItem.swift */; };
 		1CB8DE0F20D5129200B645BB /* ShopItemDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB8DE0E20D5129200B645BB /* ShopItemDetails.swift */; };
 		1CBD1F6420D517020082F7B1 /* ShopAisleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CBD1F6320D517020082F7B1 /* ShopAisleViewController.xib */; };
@@ -71,6 +75,10 @@
 		1C30357720D3D36E007A0270 /* ProductDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsInteractorTests.swift; sourceTree = "<group>"; };
 		1C30357920D3D377007A0270 /* ProductDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsPresenterTests.swift; sourceTree = "<group>"; };
 		1C30357B20D3D57C007A0270 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		1C8ACF4920D6647500878D36 /* ItemFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFetcher.swift; sourceTree = "<group>"; };
+		1C8ACF4B20D664F300878D36 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		1C8ACF4D20D664FA00878D36 /* ItemDetailsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsFetcher.swift; sourceTree = "<group>"; };
+		1C8ACF5020D66F8E00878D36 /* MockFetchers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFetchers.swift; sourceTree = "<group>"; };
 		1CB8DE0C20D5128900B645BB /* ShopItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItem.swift; sourceTree = "<group>"; };
 		1CB8DE0E20D5129200B645BB /* ShopItemDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopItemDetails.swift; sourceTree = "<group>"; };
 		1CBD1F6320D517020082F7B1 /* ShopAisleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ShopAisleViewController.xib; path = ../../../../kitchenwares/KitchenWares/ShopAisle/UI/ShopAisleViewController.xib; sourceTree = "<group>"; };
@@ -145,6 +153,7 @@
 		1C30354820D3CE44007A0270 /* KitchenWaresTests */ = {
 			isa = PBXGroup;
 			children = (
+				1C8ACF4F20D66F7F00878D36 /* ServiceMocks */,
 				1C30357120D3D30A007A0270 /* ProductDetailsTests */,
 				1C30357220D3D311007A0270 /* ShopAisleTests */,
 				1C30354920D3CE44007A0270 /* KitchenWaresTests.swift */,
@@ -250,8 +259,19 @@
 		1C30357D20D409AC007A0270 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1C8ACF4920D6647500878D36 /* ItemFetcher.swift */,
+				1C8ACF4B20D664F300878D36 /* ImageLoader.swift */,
+				1C8ACF4D20D664FA00878D36 /* ItemDetailsFetcher.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		1C8ACF4F20D66F7F00878D36 /* ServiceMocks */ = {
+			isa = PBXGroup;
+			children = (
+				1C8ACF5020D66F8E00878D36 /* MockFetchers.swift */,
+			);
+			path = ServiceMocks;
 			sourceTree = "<group>";
 		};
 		1CB8DE0B20D5127100B645BB /* Model */ = {
@@ -303,7 +323,6 @@
 				1C30352D20D3CE43007A0270 /* Sources */,
 				1C30352E20D3CE43007A0270 /* Frameworks */,
 				1C30352F20D3CE43007A0270 /* Resources */,
-				0E91CF3879232CDBBA6AA6D9 /* [CP] Embed Pods Frameworks */,
 				1CBD1F6C20D52F280082F7B1 /* ShellScript */,
 			);
 			buildRules = (
@@ -323,7 +342,6 @@
 				1C30354120D3CE44007A0270 /* Sources */,
 				1C30354220D3CE44007A0270 /* Frameworks */,
 				1C30354320D3CE44007A0270 /* Resources */,
-				1853D2BE01EF6E478761EB34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -396,42 +414,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E91CF3879232CDBBA6AA6D9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KitchenWares/Pods-KitchenWares-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KitchenWares/Pods-KitchenWares-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1853D2BE01EF6E478761EB34 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KitchenWaresTests/Pods-KitchenWaresTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KitchenWaresTests/Pods-KitchenWaresTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		1CBD1F6C20D52F280082F7B1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -489,10 +471,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C30356820D3D2A2007A0270 /* ShopAisleProtocols.swift in Sources */,
+				1C8ACF4A20D6647500878D36 /* ItemFetcher.swift in Sources */,
 				1C30356C20D3D2CE007A0270 /* ShopAisleInteractor.swift in Sources */,
 				1C30356620D3D293007A0270 /* ProductDetailsViewController.swift in Sources */,
 				1C30355D20D3D239007A0270 /* ProductDetailsProtocols.swift in Sources */,
 				1C30356A20D3D2AC007A0270 /* ShopAisleWireframe.swift in Sources */,
+				1C8ACF4C20D664F300878D36 /* ImageLoader.swift in Sources */,
 				1C30356420D3D27E007A0270 /* ProductDetailsPresenter.swift in Sources */,
 				1C30356E20D3D2EA007A0270 /* ShopAislePresenter.swift in Sources */,
 				1C30356020D3D255007A0270 /* ProductDetailsWireframe.swift in Sources */,
@@ -500,6 +484,7 @@
 				1CB8DE0F20D5129200B645BB /* ShopItemDetails.swift in Sources */,
 				1CBD1F6B20D52AF80082F7B1 /* AppShopAisleFactory.swift in Sources */,
 				1C30353520D3CE43007A0270 /* AppDelegate.swift in Sources */,
+				1C8ACF4E20D664FA00878D36 /* ItemDetailsFetcher.swift in Sources */,
 				1C30356220D3D26A007A0270 /* ProductDetailsInteractor.swift in Sources */,
 				1C30357020D3D2F3007A0270 /* ShopAisleViewController.swift in Sources */,
 			);
@@ -511,6 +496,7 @@
 			files = (
 				1CBD1F6E20D534910082F7B1 /* ShopAisleMocks.swift in Sources */,
 				1C30354A20D3CE44007A0270 /* KitchenWaresTests.swift in Sources */,
+				1C8ACF5120D66F8E00878D36 /* MockFetchers.swift in Sources */,
 				1C30357420D3D35C007A0270 /* ShopAisleInteractorTests.swift in Sources */,
 				1C30357A20D3D377007A0270 /* ProductDetailsPresenterTests.swift in Sources */,
 				1CBD1F7420D539CE0082F7B1 /* ShopAisleWireframeTests.swift in Sources */,
@@ -662,10 +648,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = KitchenWares/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vixac.KitchenWares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -680,10 +663,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = KitchenWares/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vixac.KitchenWares;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -699,11 +679,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = KitchenWaresTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vixac.KitchenWaresTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -720,11 +696,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = KitchenWaresTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = vixac.KitchenWaresTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
