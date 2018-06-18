@@ -12,7 +12,7 @@ Dishwashers served in a VIPER stack.
 * cd into the top level directory
 * punch this in `pod install`
 * open  KitchenWares.xcworkspace in Xcode
-* build, test, and run 
+* build, test, and aun 
 
 
 ## Assumptions
@@ -22,7 +22,11 @@ Dishwashers served in a VIPER stack.
   
 ## Decisions
 * TDD was used throughout. Red tests were commited before implementations.
-* Git flow was used to work in a separate branch. 
+* Git flow was used to work in a separate branch until it was ready to merge in.
+* Routers, Presenters, Interactors, and Services deserve tests, Views and ViewControllers do not.
+* Although trivial in this example, the model types and display types were kept distinct. `ProductId` and `ShopItem` were converted to  `identifier:String`  and `ShopItemDisplayable` for the view.
+* The division between code paths for ipad and iphone was kept to a minimum.
+
 * Pods:
 
    - In the end, the only Pod that survived the cut was SwiftLint, which I find speeds up development as it is easier to write syntactically clean code first time round, and catch occasional errors such unused variables, or using `var` when `let` will do.
@@ -32,11 +36,6 @@ Dishwashers served in a VIPER stack.
    - The simplest possible JSON parser was used: direct manipulation of the Dictionary. Codable or SwiftyJson would definitely have been good choices here too.
   
   -  Swinject would have been a nice choice for Dependency injection. Instead of using full on dependency injection, an injected factory was used to keep constructor sizes reasonable.
-   
-   - Routers, Presenters, Interactors, and Services deserve tests, Views and ViewControllers do not.
-   - Although trivial in this example, the model types and display types were kept distinct. `ProductId` and `ShopItem` were converted to  `identifier:String`  and `ShopItemDisplayable` for the view.
-   - The division between code paths for ipad and iphone was kept to a minimum.
-    
   
 ## Some Notes About The Code
    - Occasionally, expectations were used to test synchronous code. When the value associated type of an enum needs testing, the ` if case let else ` paradigm doesn't lend itself to readable test code quite like `expection.fulfill()`
