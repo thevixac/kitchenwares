@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
+typealias ImageCallback = (UIImage) -> Void
 class ShopAisleViewController: UICollectionViewController {
     private let eventHandler: ShopAisleEventHandler
-    private var items: [ShopItem] = []
+    private var items: [ShopItemDisplayable] = []
     private let padding: CGFloat = 0
     private let flowLayout: UICollectionViewFlowLayout
-    private var idMap: [String: Int] = [:]
+    private var imageCallbacks: [String: ImageCallback] = [:]
     init(eventHandler: ShopAisleEventHandler) {
         self.eventHandler = eventHandler
         flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .vertical
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
-        
         super.init(collectionViewLayout: flowLayout)
     }
     
@@ -57,31 +57,17 @@ class ShopAisleViewController: UICollectionViewController {
             return UICollectionViewCell()
         }
         let item = items[indexPath.row]
-        cell.update(title: item.title, price: String(item.price), identifier: item.productId)
+        cell.update(title: item.title, price: item.price, identifier: item.productId)
+        imageCallbacks[item.productId] = { [weak cell] image in
+            guard let cell = cell else { return }
+            cell.setImage(image: image)
+        }
+        eventHandler.itemWillAppear(item: item)
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        guard let cell = cell as? ShopAisleCell else {
-            return
-        }
-        guard let productId = cell.cellIdentifer() else {
-            return
-        }
-        guard let row = idMap[productId] else {
-            return
-        }
-        //VXTODO do we need this
-        guard items.count > row else  {
-            return
-        }
-        let item = items[row]
-        eventHandler.itemWillAppear(item: item)
-    }
-
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //VXTODO tell eventHandler about productId of selected.
+        //Tell eventHandler about productId of selected.
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -89,6 +75,7 @@ class ShopAisleViewController: UICollectionViewController {
         flowLayout.itemSize = getCellSize()
         flowLayout.invalidateLayout()
     }
+    
     private func getCellSize() -> CGSize {
         let orientation = UIDevice.current.orientation
         guard let collectionView = collectionView else {
@@ -110,7 +97,7 @@ class ShopAisleViewController: UICollectionViewController {
         }
     }
     private func getCellSize(columns: CGFloat, from width: CGFloat) -> CGSize {
-        return CGSize(width: (width / columns) - (padding * columns * 2.0), height: 300)
+        return CGSize(width: (width / columns) - (padding * columns * 2.0), height: 350)
     }
 }
 
@@ -126,26 +113,19 @@ extension ShopAisleViewController: UICollectionViewDelegateFlowLayout {
 }
  
 extension ShopAisleViewController: ShopAisleView {
-    func display(items: [ShopItem]) {
-        
+    func display(items: [ShopItemDisplayable]) {
         self.items = items
-        for (index, item) in items.enumerated() {
-            idMap[item.productId] = index
-        }
-
         DispatchQueue.main.async {
             self.title = "Dishwashers (\(items.count))"
             self.collectionView?.reloadData()
         }
     }
     
-    func displayImage(productId: ProductId, image: UIImage) {
-        guard let row = idMap[productId] else {
-            return
+    func displayImage(identifier: String, image: UIImage) {
+        DispatchQueue.main.async { [weak self] in
+            guard let `self` = self else { return }
+            guard let cb = self.imageCallbacks[identifier] else { return }
+            cb(image)
         }
-        guard let cell = collectionView?.cellForItem(at: IndexPath(row: row, section: 0)) as? ShopAisleCell else {
-            return
-        }
-        cell.setImage(image: image)
     }
 }

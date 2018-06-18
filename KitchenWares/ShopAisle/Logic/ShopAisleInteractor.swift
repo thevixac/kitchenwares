@@ -18,19 +18,26 @@ class ShopAisleInteractor {
 }
 
 extension ShopAisleInteractor: ShopAisleInteractorInput {
-    func imageRequestedFor(item: ShopItem) {
-        guard let url = URL(string: "https:" + item.imagePath) else {
+    func imageRequestedFor(productId: ProductId, imagePath: String) {
+        guard let url = URL(string: "https:" + imagePath) else {
             return
         }
+        itemFetcher.fetchImage(url: url) { [weak self] result, error in
+            guard let `self` = self else { return }
+            guard error == nil else { return }
+            
+            self.output?.imageReceived(productId: productId, data: result)
+        }
     }
-    
     
     func set(output: ShopAisleInteractorOutput) {
         self.output = output
     }
     
     func moduleDidLoad() {
-        self.itemFetcher.fetchItems { items, error in
+        self.itemFetcher.fetchItems { [weak self]  items, error in
+            guard let `self` = self else { return }
+            
             if let error = error {
                 self.output?.errorFetchingItems(error: error)
                 return

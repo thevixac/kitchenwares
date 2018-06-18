@@ -10,7 +10,6 @@ import Foundation
 
 protocol URLProvider {
     func itemFetcherURL() -> URL
-    func urlForImagePath(image: URL) -> URL
     func detailsURL(productID: String) -> URL
 }
 
@@ -21,10 +20,7 @@ class JohnLewisURL {
     func itemFetcherURL() -> URL {
         return URL(string: "https://api.johnlewis.com/v1/products/search?q=dishwasher&key=Wu1Xqn3vNrd1p7hqkvB6hEu0G9OrsYGb&pageSize=20")!
     }
-    func urlForImagePath(image: URL) -> URL {
-        return URL(string: "TODO")!
-    }
     func detailsURL(productID: String) -> URL {
-        return URL(string: "TODO")!
+        return URL(string: "")!
     }
 }

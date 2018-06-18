@@ -39,17 +39,24 @@ class ShopAislePresenterTests: XCTestCase {
      * Then: the interactor should be called to fetch the image
      */
     func testItemAppearingRequestsImage() {
-        testObject.itemWillAppear(item: MockItems.shopItem())
-        XCTAssertEqual(mockInteractor.imageRequestedItem?.productId, "mockId")
+        testObject.itemWillAppear(item: MockItems.shopItemDisplayable(productId: "testId", imagePath: "//testPath"))
+        XCTAssertEqual(mockInteractor.imageProductId, "testId")
+        XCTAssertEqual(mockInteractor.imagePath, "//testPath")
     }
     
     /**
      * When: presenter receives image data
      * Then: the view should receive the image with productId
+     * And: the image should be passed in
      */
     func testImageReceivedGoesToView() {
-        testObject.imageReceived(productId: "testId", data: MockItems.someData())
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 10))
+        view.backgroundColor = .red
+        let image = viewToImage(view: view)
+        let data = UIImagePNGRepresentation(image)
+        testObject.imageReceived(productId: "testId", data: data)
         XCTAssertEqual(mockView.displayProductId, "testId")
+        XCTAssertEqual(mockView.passedImage?.size.width, 40)
     }
     
     /**
@@ -59,5 +66,13 @@ class ShopAislePresenterTests: XCTestCase {
     func testMissingImageDataGetsIgnored() {
         testObject.imageReceived(productId: "testId", data: nil)
         XCTAssertNil(mockView.displayProductId)
+    }
+    
+    private func viewToImage(view: UIView) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, 1.0)
+        defer { UIGraphicsEndImageContext() }
+        let context = UIGraphicsGetCurrentContext()!
+        view.layer.render(in: context)
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 }

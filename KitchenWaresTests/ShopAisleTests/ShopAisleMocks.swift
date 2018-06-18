@@ -13,9 +13,11 @@ import UIKit
 
 class MockShopAisleInteractor: ShopAisleInteractorInput {
     
-    var imageRequestedItem: ShopItem?
-    func imageRequestedFor(item: ShopItem) {
-        imageRequestedItem = item
+    var imageProductId: ProductId?
+    var imagePath: String?
+    func imageRequestedFor(productId: ProductId, imagePath: String) {
+        imageProductId = productId
+        self.imagePath = imagePath
     }
 
     var moduleDidLoadCalled = false
@@ -30,8 +32,8 @@ class MockShopAisleInteractor: ShopAisleInteractorInput {
 }
 
 class MockShopAislePresenter: ShopAisleInteractorOutput, ShopAisleEventHandler {
-    var itemToAppear: ShopItem?
-    func itemWillAppear(item: ShopItem) {
+    var itemToAppear: ShopItemDisplayable?
+    func itemWillAppear(item: ShopItemDisplayable) {
         itemToAppear = item
     }
     
@@ -63,13 +65,15 @@ class MockShopAislePresenter: ShopAisleInteractorOutput, ShopAisleEventHandler {
 
 class MockShopAisleView: ShopAisleView {
     
-    var itemsToDisplay: [ShopItem]?
-    func display(items: [ShopItem]) {
+    var itemsToDisplay: [ShopItemDisplayable]?
+    func display(items: [ShopItemDisplayable]) {
         itemsToDisplay = items
     }
     var displayProductId: ProductId?
-    func displayImage(productId: ProductId, image: UIImage) {
-        displayProductId = productId
+    var passedImage: UIImage?
+    func displayImage(identifier: String, image: UIImage) {
+        displayProductId = identifier
+        passedImage = image
     }
 }
 
@@ -119,6 +123,13 @@ class MockItems {
                         price: Float = 123.34,
                         imagePath: String = "imagePath") -> ShopItem {
         return ShopItem(productId: productId, title: title, price: price, imagePath: imagePath)
+    }
+    
+    class func shopItemDisplayable(productId: String = "mockId",
+                                   title: String = "title",
+                                   price: String = "$42.00",
+                                   imagePath: String = "imagePath") -> ShopItemDisplayable {
+        return ShopItemDisplayable(productId: productId, title: title, price: price, imagePath: imagePath)
     }
     
     class func someData() -> Data {

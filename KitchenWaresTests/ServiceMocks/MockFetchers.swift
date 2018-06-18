@@ -35,4 +35,3 @@ class MockDishwaserJsonParser: DishwasherParserProtocol {
         return (itemToReturn, errorToReturn)
     }
 }
-

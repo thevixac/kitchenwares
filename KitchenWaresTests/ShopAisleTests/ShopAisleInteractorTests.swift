@@ -69,7 +69,7 @@ class ShopAisleInteractorTests: XCTestCase {
      * And: The presenter gets notified
      */
     func testImageGetsRequested() {
-        testObject.imageRequestedFor(item: MockItems.shopItem(productId: "testId", imagePath:"test_image_path"))
+        testObject.imageRequestedFor(productId: "testId", imagePath: "//test_image_path")
         XCTAssertEqual(mockFetcher.imageURL?.absoluteString, "https://test_image_path")
         XCTAssertEqual(mockPresenter.imageProductId, "testId")
     }

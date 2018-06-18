@@ -131,7 +131,7 @@ class ItemFetcherTests: XCTestCase {
             XCTAssertNil(error)
             if let data = data {
                 let str =  String(data: data, encoding: .utf8)
-                XCTAssertEqual(str, "invalidJson")
+                XCTAssertEqual(str, "invalidjson")
                 exp.fulfill()
             }
         }

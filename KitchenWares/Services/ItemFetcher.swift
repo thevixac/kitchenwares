@@ -20,10 +20,11 @@ protocol ItemFetcherProtocol: class {
 }
 
 class ItemFetcher: ItemFetcherProtocol {
-    
     private let endpoint: URL
     private let parser: DishwasherParserProtocol
     private let session: URLSession
+    
+    private var imageCache: [String: Data] = [:]
     init(endpoint: URL, parser: DishwasherParserProtocol, session: URLSession) {
         self.endpoint = endpoint
         self.parser = parser
@@ -62,6 +63,23 @@ class ItemFetcher: ItemFetcherProtocol {
     }
     
     func fetchImage(url: URL, completion: @escaping((Data?, ItemFetcherError?) -> Void)) {
-        
+        if let data = imageCache[url.absoluteString] {
+            completion(data, nil)
+        }
+        let task = session.dataTask(with: url) { [weak self] data, _, error in
+            if let error = error {
+                completion(nil, ItemFetcherError.network(error))
+                return
+            }
+            guard let data = data else {
+                completion(nil, ItemFetcherError.noData)
+                return
+            }
+            if let `self` = self {
+                self.imageCache[url.absoluteString] = data
+            }
+            completion(data, nil)
+        }
+        task.resume()
     }
 }

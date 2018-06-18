@@ -17,7 +17,7 @@ protocol ShopAisleWireframeProtocol {
 protocol ShopAisleInteractorInput: class {
     func moduleDidLoad()
     func set(output: ShopAisleInteractorOutput)
-    func imageRequestedFor(item: ShopItem)
+    func imageRequestedFor(productId: ProductId, imagePath: String)
 }
 
 protocol ShopAisleInteractorOutput: class {
@@ -29,7 +29,7 @@ protocol ShopAisleInteractorOutput: class {
 protocol ShopAisleEventHandler: class {
     func viewWillAppear()
     func set(view: ShopAisleView)
-    func itemWillAppear(item: ShopItem)
+    func itemWillAppear(item: ShopItemDisplayable)
 }
 
 protocol ShopAisleFactory: class {
@@ -40,6 +40,6 @@ protocol ShopAisleFactory: class {
 }
 
 protocol ShopAisleView: class {
-    func display(items: [ShopItem])
-    func displayImage(productId: ProductId, image: UIImage)
+    func display(items: [ShopItemDisplayable])
+    func displayImage(identifier: String, image: UIImage)
 }

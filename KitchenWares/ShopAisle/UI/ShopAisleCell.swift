@@ -20,7 +20,7 @@ class ShopAisleCell: UICollectionViewCell {
     }
 
     override func awakeFromNib() {
-        borderView.layer.borderColor = UIColor.lightGray.cgColor
+        borderView.layer.borderColor = UIColor(white: 0.9, alpha: 1.0).cgColor
         borderView.layer.borderWidth = 1
     }
     
