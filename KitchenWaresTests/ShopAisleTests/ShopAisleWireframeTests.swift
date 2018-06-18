@@ -26,14 +26,18 @@ class ShopAisleWireframeTests: XCTestCase {
     
     /**
      * When: Display is called
-     * Then: The factory viewcontroller should be attached to the window
+     * Then: The factory viewcontroller should be attached to the window inside a navigationController
      */
     func testDisplayUsesFactoryViewController() {
         let window = UIWindow(frame: .zero)
         XCTAssertNil(window.rootViewController)
         testObject.display(in: window)
         XCTAssertNotNil(window.rootViewController)
-        XCTAssertEqual(window.rootViewController?.title, "TestViewController")
+        let nav = window.rootViewController as? UINavigationController
+        XCTAssertNotNil(nav)
+        let first = nav?.viewControllers.first
+        XCTAssertNotNil(first)
+        XCTAssertEqual(first?.title, "TestViewController")
     }
     
     /**

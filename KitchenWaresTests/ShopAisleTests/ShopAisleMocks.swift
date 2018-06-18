@@ -13,15 +13,11 @@ import UIKit
 
 class MockShopAisleInteractor: ShopAisleInteractorInput {
     
-    //VXTODO one or the other.
+    var imageRequestedItem: ShopItem?
     func imageRequestedFor(item: ShopItem) {
-        
+        imageRequestedItem = item
     }
-    
-    func imageRequestedFor(productId: String) {
-        
-    }
-    
+
     var moduleDidLoadCalled = false
     func moduleDidLoad() {
         moduleDidLoadCalled = true
@@ -34,16 +30,14 @@ class MockShopAisleInteractor: ShopAisleInteractorInput {
 }
 
 class MockShopAislePresenter: ShopAisleInteractorOutput, ShopAisleEventHandler {
+    var itemToAppear: ShopItem?
     func itemWillAppear(item: ShopItem) {
-        
+        itemToAppear = item
     }
     
+    var imageProductId: ProductId?
     func imageReceived(productId: ProductId, data: Data?) {
-        
-    }
-    
-    func itemWillAppear(productId: ProductId) {
-        
+        imageProductId = productId
     }
     
     var errorFromFetching: ItemFetcherError?
@@ -67,25 +61,15 @@ class MockShopAislePresenter: ShopAisleInteractorOutput, ShopAisleEventHandler {
     }
 }
 
-class MockShopAisleView: ShopAisleEventHandler {
-    var viewWillAppearCalled = false
-    func viewWillAppear() {
-        viewWillAppearCalled = true
-    }
+class MockShopAisleView: ShopAisleView {
     
-    var itemToAppear: ShopItem?
-    func itemWillAppear(item: ShopItem) {
-        itemToAppear = item
+    var itemsToDisplay: [ShopItem]?
+    func display(items: [ShopItem]) {
+        itemsToDisplay = items
     }
-    
-    var setCalledView: ShopAisleView?
-    func set(view: ShopAisleView) {
-        setCalledView = view
-    }
-    
-    var productIdAppear: ProductId?
-    func itemWillAppear(productId: ProductId) {
-        productIdAppear = productId
+    var displayProductId: ProductId?
+    func displayImage(productId: ProductId, image: UIImage) {
+        displayProductId = productId
     }
 }
 
@@ -126,5 +110,18 @@ class TestShopAisleFactory: ShopAisleFactory {
     func wireframe() -> ShopAisleWireframeProtocol {
         wireframeCalled = true
         return MockShopAisleWireframe()
+    }
+}
+
+class MockItems {
+    class func shopItem(productId: ProductId = "mockId",
+                        title: String = "title",
+                        price: Float = 123.34,
+                        imagePath: String = "imagePath") -> ShopItem {
+        return ShopItem(productId: productId, title: title, price: price, imagePath: imagePath)
+    }
+    
+    class func someData() -> Data {
+        return Data(base64Encoded: "aW52YWxpZGpzb24=")! //thats base64 for "invalidjson"
     }
 }

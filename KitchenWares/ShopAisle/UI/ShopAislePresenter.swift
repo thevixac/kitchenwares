@@ -6,7 +6,7 @@
 //  Copyright © 2018 vixac. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ShopAislePresenter {
     private let input: ShopAisleInteractorInput
@@ -18,7 +18,7 @@ class ShopAislePresenter {
 
 extension ShopAislePresenter: ShopAisleEventHandler {
     func itemWillAppear(item: ShopItem) {
-        
+        //VXTODO
     }
     
     func viewWillAppear() {

@@ -25,6 +25,7 @@ protocol ShopAisleInteractorOutput: class {
     func errorFetchingItems(error: ItemFetcherError)
     func imageReceived(productId: ProductId, data: Data?)
 }
+
 protocol ShopAisleEventHandler: class {
     func viewWillAppear()
     func set(view: ShopAisleView)

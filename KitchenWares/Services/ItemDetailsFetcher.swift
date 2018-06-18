@@ -8,6 +8,7 @@
 
 import Foundation
 
+//VXTODO RM
 protocol ItemDetailsFetcherProtocol: class {
     
 }

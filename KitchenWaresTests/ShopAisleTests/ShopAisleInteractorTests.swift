@@ -56,10 +56,21 @@ class ShopAisleInteractorTests: XCTestCase {
      * Then: The presenter should be passed the items to display
      */
     func testPresenterGetsItemsToDisplay() {
-        mockFetcher.itemsToReturn = [ShopItem(productId: "id", title: "test1", price: 0.1, imagePath: "test")]
+        mockFetcher.itemsToReturn = [MockItems.shopItem(title: "testTitle")]
         testObject.moduleDidLoad()
         XCTAssertNotNil(mockPresenter.items)
         XCTAssertEqual(mockPresenter.items?.count, 1)
-        XCTAssertEqual(mockPresenter.items?[0].title, "test1")
+        XCTAssertEqual(mockPresenter.items?[0].title, "testTitle")
+    }
+    
+    /**
+     * When: Image is requested
+     * Then: The fetcher requests the image over https
+     * And: The presenter gets notified
+     */
+    func testImageGetsRequested() {
+        testObject.imageRequestedFor(item: MockItems.shopItem(productId: "testId", imagePath:"test_image_path"))
+        XCTAssertEqual(mockFetcher.imageURL?.absoluteString, "https://test_image_path")
+        XCTAssertEqual(mockPresenter.imageProductId, "testId")
     }
 }

@@ -10,6 +10,14 @@ import Foundation
 @testable import KitchenWares
 
 class MockItemFetcher: ItemFetcherProtocol {
+    var imageURL: URL?
+    var imageDataToReturn: Data?
+    var imageErrorToReturn: ItemFetcherError?
+    func fetchImage(url: URL, completion: @escaping ((Data?, ItemFetcherError?) -> Void)) {
+        self.imageURL = url
+        completion(imageDataToReturn, imageErrorToReturn)
+    }
+    
     var itemsToReturn: [ShopItem]?
     var errorToReturn: ItemFetcherError?
     var fetchCalled = false
@@ -27,3 +35,4 @@ class MockDishwaserJsonParser: DishwasherParserProtocol {
         return (itemToReturn, errorToReturn)
     }
 }
+

@@ -85,11 +85,11 @@ class ItemFetcherTests: XCTestCase {
     }
     
     /**
-     * When: No data is returned
-     * Then: a noData error should be returned
+     * When: Bad data is returned
+     * Then: a parsingError should be returned
      */
     func testBadData() {
-        mockSession.dataToReturn = badData()
+        mockSession.dataToReturn = MockItems.someData()
         let exp = expectation(description: "testBadData")
         testObject.fetchItems { result, error in
             XCTAssertNil(result)
@@ -102,8 +102,40 @@ class ItemFetcherTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
     
-    private func badData() -> Data {
-        return Data(base64Encoded: "aW52YWxpZGpzb24=")! //thats base64 for "invalidjson"
+    /**
+     * When: No image data is returned
+     * Then: a noData error should be returned
+     */
+    func testImageNoData() {
+        mockSession.dataToReturn = nil
+        let exp = expectation(description: "testImageNoData")
+        testObject.fetchImage(url: URL(string: "testURL")!) { result, error in
+            XCTAssertNil(result)
+            if let error = error {
+                if case ItemFetcherError.noData = error {
+                    exp.fulfill()
+                }
+            }
+        }
+        waitForExpectations(timeout: 1)
+    }
+    
+    /**
+     * When: image data is returned
+     * Then: the data should be passed on
+     */
+    func testImageDataReturned() {
+        mockSession.dataToReturn = MockItems.someData()
+        let exp = expectation(description: "testImageDataReturned")
+        testObject.fetchImage(url: URL(string: "testURL")!) { data, error in
+            XCTAssertNil(error)
+            if let data = data {
+                let str =  String(data: data, encoding: .utf8)
+                XCTAssertEqual(str, "invalidJson")
+                exp.fulfill()
+            }
+        }
+        waitForExpectations(timeout: 1)
     }
 
     private func goodData() -> Data {

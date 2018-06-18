@@ -16,6 +16,7 @@ enum ItemFetcherError: Error {
 
 protocol ItemFetcherProtocol: class {
     func fetchItems(completion: @escaping (([ShopItem]?, ItemFetcherError?) -> Void))
+    func fetchImage(url: URL, completion: @escaping((Data?, ItemFetcherError?) -> Void))
 }
 
 class ItemFetcher: ItemFetcherProtocol {
@@ -58,5 +59,9 @@ class ItemFetcher: ItemFetcherProtocol {
             
         }
         task.resume()
+    }
+    
+    func fetchImage(url: URL, completion: @escaping((Data?, ItemFetcherError?) -> Void)) {
+        
     }
 }
